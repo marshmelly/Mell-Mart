@@ -1,0 +1,81 @@
+/* Navbar Container */
+.navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  background-color: navy;
+  color: white;
+  padding: 20px;
+  transition: width 0.3s ease;
+  z-index: 1000;
+}
+
+/* Collapsed State */
+.navbar.collapsed {
+  width: 80px;
+}
+
+.navbar.collapsed .navbar-brand,
+.navbar.collapsed .navbar-links a span {
+  display: none;
+}
+
+/* Toggle Button */
+.toggle-btn {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  background: navy;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Brand/Logo */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+  color: whitesmoke;
+}
+
+/* Navigation Links */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-links li {
+  margin: 15px 0;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+  color: lightblue;
+}
+
+.navbar-links svg {
+  font-size: 1.5rem;
+}

@@ -1,0 +1,33 @@
+.hero {
+  background: url('Images/commerce.jpg') no-repeat center center/cover;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  color: white;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.cta-button {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.ms ease-out;
+}
+
+.cta-button:hover {
+  background: #ff5252;
+  transition:  4ms ease-out;
+}
