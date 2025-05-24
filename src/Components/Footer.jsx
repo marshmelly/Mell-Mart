@@ -33,7 +33,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="copyright">
-          &copy; {currentYear} Your Company Name. All rights reserved.
+          &copy; {currentYear} Mell Mart. All rights reserved.
         </div>
       </div>
     </footer>

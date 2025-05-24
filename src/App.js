@@ -11,6 +11,7 @@ import Home from './Components/Home';
 import Cart from './Components/Cart';
 import Contact from './Components/Contact';
 import Footer from './Components/Footer';
+import AddProducts from './Components/AddProducts'
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
               <Route path='/signup' element={<Signup/>}/>
               <Route path='/home' element={<Home/>}/>
               <Route path='/cart' element={<Cart/>}/>
+              <Route path='/add' element={<AddProducts/>}/>
               <Route path='/contact' element={<Contact/>}/>
 
             </Routes>

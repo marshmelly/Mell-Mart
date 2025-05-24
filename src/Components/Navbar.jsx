@@ -20,6 +20,7 @@ const Navbar = () => {
         <ul className="navbar-links">
           <li><a href="/home"><FaHome /> {!isCollapsed && "Home"}</a></li>
           <li><a href="/cart"><FaCartPlus /> {!isCollapsed && "Cart"}</a></li>
+          <li><a href="/add"><FaCartPlus  />  {!isCollapsed && "AddProducts"}</a></li>
           <li><a href="/signin"><FaSignInAlt /> {!isCollapsed && "Sign In"}</a></li>
           <li><a href="/contact"><FaEnvelope /> {!isCollapsed && "Contact"}</a></li>
         </ul>
