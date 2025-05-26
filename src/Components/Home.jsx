@@ -11,7 +11,7 @@ const Home = () => {
   const getProducts = async () => {
     
     try {
-       const response = await axios.get("https://mellymarsh.pythonanywhere.com/api/product_listing/");
+       const response = await axios.get("https://mellymarsh.pythonanywhere.com/api/product_listing");
         setProducts(response.data.products);
       } catch (error) {}
   };

@@ -1,15 +1,15 @@
 import axios from "axios";
 import React, { useState } from "react";
 
-const Addhaircut = () => {
+const Addproduct = () => {
   const [product_name, setProductName] = useState("");
-  const [product_description, setProductDescription] = useState("");
+  const [description, setDescription] = useState("");
   const [product_cost, setProductCost] = useState("");
   const [product_photo, setProductPhoto] = useState("");
 
   //feedback system
   const [loading, setLoading] = useState("");
-  const [success, setSuccess] = useState("");
+  const [message, setSuccess] = useState("");
   const [error, setError] = useState("");
 
   //Posting Data
@@ -20,39 +20,39 @@ const Addhaircut = () => {
     try {
       const formData = new FormData();
       formData.append("product_name", product_name);
-      formData.append("product_description", product_description);
+      formData.append("description", description);
       formData.append("product_cost", product_cost);
       formData.append("product_photo", product_photo);
 
       const response = await axios.post(
-        "https://marshmelly.pythonanywhere.com/api/add_product",
+        "https://mellymarsh.pythonanywhere.com/api/add_product",
         formData
       );
-      if (response.data.success) {
+      if (response.data.message) {
         setLoading("");
-        setSuccess(response.data.success);
+        setSuccess(response.data.message);
         setProductName("");
-        setProductDescription("");
+        setDescription("");
         setProductCost("");
         setProductPhoto("");
       }
     } catch (error) {
       setLoading("");
-      setSuccess("");
+      setSuccess(error.message);
       setError(error.message);
     }
   };
   return (
     <div className="row justify-content-center mt-4 ">
       <div className="col-md-6 card shadow p-2 dola">
-        <h1 className="yo">Add Haircuts</h1>
+        <h1 className="yo">Add Produts</h1>
         {loading}
-        {success}
+        {message}
         {error}
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder=" Enter Haircut name"
+            placeholder=" Enter Product name"
             className="form-control"
             value={product_name}
             onChange={(e) => {
@@ -64,9 +64,9 @@ const Addhaircut = () => {
             placeholder=" Enter  description"
             id="text"
             className="form-control"
-            value={product_description}
+            value={description}
             onChange={(e) => {
-              setProductDescription(e.target.value);
+              setDescription(e.target.value);
             }}
           ></textarea>
           <br />
@@ -101,4 +101,4 @@ const Addhaircut = () => {
   );
 };
 
-export default Addhaircut;
+export default Addproduct;

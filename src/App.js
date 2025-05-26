@@ -8,7 +8,7 @@ import Signup from './Components/Signup';
 import Navbar from './Components/Navbar';
 import Landing from './Components/Landing';
 import Home from './Components/Home';
-import Cart from './Components/Cart';
+import Cart from './Components/Cart copy';
 import Contact from './Components/Contact';
 import Footer from './Components/Footer';
 import AddProducts from './Components/AddProducts'
