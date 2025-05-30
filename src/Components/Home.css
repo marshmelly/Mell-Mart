@@ -1,4 +1,10 @@
 .product{
-      max-height: 350px;
+  max-height: 350px;
   display: flex;
+}
+
+.home{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

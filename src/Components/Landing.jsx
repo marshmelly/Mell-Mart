@@ -14,6 +14,11 @@ const Landing = () => {
         <p>Discover premium products at unbeatable prices</p>
         <button className="cta-button" type='button' onClick={handleClick}>Shop Now</button>
       </div>
+
+      <div className="hero-content">
+        <h1>Welcome To Mell Mart</h1>
+        <p>Experience the best shopping with us at great discounts</p>
+      </div>
     </section>
   )
 }

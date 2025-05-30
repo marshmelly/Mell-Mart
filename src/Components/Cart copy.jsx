@@ -5,23 +5,37 @@ import './Cart2.css';
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
-  const img_url = "https://mellymarsh.pythonanywhere.com/static/images/";
+  const img_url = "https://marshmelly.pythonanywhere.com/static/images/";
   const location = useLocation();
+  const { product } = location.state || {};
   const [cartItems, setCartItems] = useState([]);
   const navigate = useNavigate();
+
+  // Load cart from localStorage on initial render
+  useEffect(() => {
+    const savedCart = localStorage.getItem('cartItems');
+    if (savedCart) {
+      setCartItems(JSON.parse(savedCart));
+    }
+  }, []);
+
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const getProducts = async () => {
     try {
       const response = await axios.get("https://mellymarsh.pythonanywhere.com/api/cart/");
-      setProducts(response.data.product);
+      setProducts(response.data); // Changed from response.data.product to response.data
     } catch (error) {
       console.error("Error fetching products:", error);
     }
   };
 
-  const addToCart = (product) => {
+  const addToCart = (productToAdd) => {
     // Check if product already exists in cart
-    const existingItemIndex = cartItems.findIndex(item => item.id === product.id);
+    const existingItemIndex = cartItems.findIndex(item => item.id === productToAdd.id);
     
     if (existingItemIndex >= 0) {
       // If exists, update quantity
@@ -30,7 +44,10 @@ const Cart = () => {
       setCartItems(updatedCart);
     } else {
       // If new, add with quantity 1
-      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+      setCartItems([...cartItems, { 
+        ...productToAdd, 
+        quantity: 1 
+      }]);
     }
   };
 
@@ -69,6 +86,11 @@ const Cart = () => {
 
   useEffect(() => {
     getProducts();
+    
+    // If a product was passed via navigation state, add it to cart
+    if (product) {
+      addToCart(product);
+    }
   }, []);
 
   return (
@@ -78,7 +100,7 @@ const Cart = () => {
           <h2>Shopping Cart ({getTotalItems()})</h2>
           <div className="cart-content">
             {cartItems.length === 0 ? (
-              <p className="empty-cart-message">Nothing here yet</p>
+              <p className="empty-cart-message">Your cart is empty</p>
             ) : (
               <div className="cart-items">
                 {cartItems.map((item) => (
@@ -90,7 +112,7 @@ const Cart = () => {
                     />
                     <div className="cart-item-details">
                       <h4>{item.product_name}</h4>
-                      <p>${item.product_cost}</p>
+                      <p>${item.product_cost.toFixed(2)}</p>
                       <div className="quantity-controls">
                         <button 
                           onClick={() => updateQuantity(item.id, item.quantity - 1)}
@@ -139,7 +161,7 @@ const Cart = () => {
           </div>
         )}
         <div className="product-grid">
-          {products?.map((product) => (
+          {products.map((product) => (
             <div className="product-card" key={product.id}>
               <img 
                 src={img_url + product.product_photo} 
@@ -149,19 +171,13 @@ const Cart = () => {
               <div className="product-details">
                 <h3>{product.product_name}</h3>
                 <p className="description">{product.description}</p>
-                <p className="price">${product.product_cost}</p>
+                <p className="price">${product.product_cost.toFixed(2)}</p>
                 <div className="product-actions">
                   <button 
                     onClick={() => addToCart(product)}
                     className="add-to-cart-button"
                   >
                     Add to Cart
-                  </button>
-                  <button 
-                    onClick={() => navigate("/payment", { state: { product } })}
-                    className="buy-now-button"
-                  >
-                    Buy Now
                   </button>
                 </div>
               </div>

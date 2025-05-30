@@ -1,36 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import pic1 from "./Carousel Images/image1.jpg";
+import pic2 from "./Carousel Images/image2.jpg";
+import pic3 from "./Carousel Images/image3.jpg";
+import pic5 from "./Carousel Images/image5.jpg";
+import pic4 from "./Carousel Images/image6.jpg";
+import pic6 from "./Carousel Images/image4.jpg";
 
-
-const images = [pic1, pic2, pic3, pic5, pic6];
+const images = [pic1, pic2, pic3, pic4, pic5,pic6];
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000); // Change every 5 seconds
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, [images.length]);
+ 
   return (
     <div style={styles.carouselContainer}>
-      <button onClick={prevSlide} style={{ ...styles.navButton, left: 0 }}>
-        &#10094;
-      </button>
+      
       <img
         src={images[currentIndex]}
         alt={`Slide ${currentIndex + 1}`}
         style={styles.image}
       />
-      <button onClick={nextSlide} style={{ ...styles.navButton, right: 0 }}>
-        &#10095;
-      </button>
+      
       <div style={styles.dotsContainer}>
         {images.map((_, index) => (
           <span
@@ -59,7 +58,7 @@ const styles = {
   },
   image: {
     width: "99vw",
-    height: "600px",
+    height: "400px",
     borderRadius: "8px",
   },
   navButton: {
@@ -67,6 +66,7 @@ const styles = {
     position: "absolute",
     top: "50%",
     padding: "16px",
+    transform: "translateY(-50%)",
     marginTop: "-22px",
     color: "black",
     fontWeight: "bold",
@@ -76,6 +76,17 @@ const styles = {
     backgroundColor: "rgba(255, 255, 255, 0.7)",
     border: "none",
     zIndex: 1,
+  },
+   // Left button specific style
+  prevButton: {
+    left: "0",
+    borderRadius: "0 3px 3px 0" // Rounded right side only
+  },
+  
+  // Right button specific style
+  nextButton: {
+    right: "0",
+    borderRadius: "3px 0 0 3px" // Rounded left side only
   },
   dotsContainer: {
     textAlign: "center",

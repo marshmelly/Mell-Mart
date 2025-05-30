@@ -12,6 +12,7 @@ import Cart from './Components/Cart copy';
 import Contact from './Components/Contact';
 import Footer from './Components/Footer';
 import AddProducts from './Components/AddProducts'
+import Payment from './Components/Payments';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
               <Route path='/signup' element={<Signup/>}/>
               <Route path='/home' element={<Home/>}/>
               <Route path='/cart' element={<Cart/>}/>
+              <Route path='/payment' element={<Payment/>}/>
               <Route path='/add' element={<AddProducts/>}/>
               <Route path='/contact' element={<Contact/>}/>
 
