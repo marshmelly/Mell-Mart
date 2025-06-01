@@ -3,13 +3,15 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './Cart2.css';
 
+
 const Cart = () => {
   const [products, setProducts] = useState([]);
-  const img_url = "https://marshmelly.pythonanywhere.com/static/images/";
+  const img_url = "https://mellymarsh.pythonanywhere.com/static/images/";
   const location = useLocation();
   const { product } = location.state || {};
   const [cartItems, setCartItems] = useState([]);
   const navigate = useNavigate();
+  
 
   // Load cart from localStorage on initial render
   useEffect(() => {
@@ -38,12 +40,12 @@ const Cart = () => {
     const existingItemIndex = cartItems.findIndex(item => item.id === productToAdd.id);
     
     if (existingItemIndex >= 0) {
-      // If exists, update quantity
+      // If it exists, update quantity
       const updatedCart = [...cartItems];
       updatedCart[existingItemIndex].quantity += 1;
       setCartItems(updatedCart);
     } else {
-      // If new, add with quantity 1
+      // If it is new, add with quantity 1
       setCartItems([...cartItems, { 
         ...productToAdd, 
         quantity: 1 
@@ -92,6 +94,7 @@ const Cart = () => {
       addToCart(product);
     }
   }, []);
+
 
   return (
     <div className='cart-page'>

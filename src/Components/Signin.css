@@ -3,5 +3,40 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    min-height: 90vh;
+}
 
+.button{
+  color: azure;
+  background-color: blue;
+  border-radius: 4px;
+  padding: 10px 20px;
+
+}
+
+.button:hover{
+  transition: 2s;
+  background-color: darkblue;
+  color: white;
+}
+
+.text{
+    display: flex;
+    flex-direction: row;
+    color: aquamarine;
+    justify-content: start;
+    align-items: left;
+}
+
+.signin-container{
+    background-color: #1E272E;
+    padding: 70px 110px;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 15px 35px;
+    width: 100%;
+    color: white;
+    max-width: 550px;
+    transform: translateY(-30px);
+    position: relative;
 }

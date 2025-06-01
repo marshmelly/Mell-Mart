@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const Landing = () => {
     const navigate = useNavigate("");
     const handleClick = () => {
-        navigate('/home')
+        navigate('/signin')
     }
   return (
      <section className="hero">

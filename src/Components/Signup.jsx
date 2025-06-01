@@ -53,7 +53,7 @@ const Signup = () => {
     }
   return (
     <div className='sign-component'>
-        <div className="shadow card col-md-6">
+        <div className="shadow card col-md-6 signin-container">
             <div className="card-body">
                 <h2 className='card-title'>Sign Up</h2>
                 <form onSubmit={handleSubmit}>

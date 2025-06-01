@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import {CartProvider} from './Components/CartContext'
 import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Signin from './Components/Signin';

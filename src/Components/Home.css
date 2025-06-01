@@ -3,8 +3,41 @@
   display: flex;
 }
 
-.home{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.button{
+  color: azure;
+  background-color: blue;
+  border-radius: 4px;
+  padding: 10px 20px;
+
 }
+
+.button:hover{
+  transition: 2s;
+  background-color: darkblue;
+  color: white;
+}
+
+.home_row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 -15px; /* To counteract the column padding */
+}
+
+.home_product_info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.home_product_info .card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.home_product_info img {
+  height: 250px; 
+  
+}
+

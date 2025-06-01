@@ -45,23 +45,31 @@ const Signin = () => {
             return;
         }
 
-        navigate("/", {state: {message: "Successfully Signed In!"}});
+        navigate("/home", {state: {message: "Successfully Signed In!"}});
     };
   return (
+   <div className="sign-in">
+     
     <div className='sign-component'>
-        <div className="shadow card col-md-6">
+      <div className="text">
+        <h3>Sign In to enjoy unlimited shopping  </h3>
+      </div>
+        <div className="shadow card col-md-6 signin-container">
             <div className="card-body">
                 <h2 className='card-title'>Sign In</h2>
                 <form action="" onClick={handleSubmit}>
+                  <p className='text'>Username</p>
                     <input type="text" placeholder='Enter Username' className='form-control' /><br />
+                    <p className='text'>Password</p>
                     <input type="password" placeholder='Enter Password' className='form-control' value={password} onChange={handlePasswordChange} /><br />
-                    <button>Sign In</button>
+                    <button className='button'>Sign In</button>
                     <p> Already have an acount? <Link to='/signup'>Create Account</Link></p>
                 </form>
             </div>
         </div>
       
     </div>
+   </div>
   )
 }
 
