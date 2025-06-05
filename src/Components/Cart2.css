@@ -14,6 +14,24 @@
   border-bottom: 1px solid #eee;
   align-items: center;
 }
+.cart-item-image{
+  max-height: 500px;
+  border-radius: 20px;
+}
+
+.button{
+  color: azure;
+  background-color: blue;
+  border-radius: 4px;
+  padding: 10px 20px;
+
+}
+
+.quantity-button:hover{
+  transition: 2s;
+  background-color: darkblue;
+  color: white;
+}
 
 .quantity-controls {
   display: flex;

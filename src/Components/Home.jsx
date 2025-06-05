@@ -13,7 +13,7 @@ const Home = () => {
   const getProducts = async () => {
     
     try {
-       const response = await axios.get("https://mellymarsh.pythonanywhere.com/api/get_product");
+       const response = await axios.get("https://mellymarsh.pythonanywhere.com/api/product_listing");
         setProducts(response.data.products);
       } catch (error) {}
   };
@@ -49,7 +49,7 @@ const Home = () => {
           ))}
         
       </div>
-      <p className='text'>Want to get the full experience? Signup to get complete updates <Link to='/signup'>Sign Up</Link></p>
+      <p className='home-text'>Want to get the full experience? Signup to get complete updates <Link to='/signup'>Sign Up</Link></p>
     </div>
   )
 }

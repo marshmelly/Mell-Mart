@@ -1,0 +1,21 @@
+.pay-form{
+    background-color:  #1E272E;
+    border-radius: 10px;
+    color: white;
+
+
+}
+
+
+.payment-form{
+    background-color: #1E272E;
+    padding: 7px 10px;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 15px 35px;
+    width: 100%;
+    color: white;
+    max-width: 550px;
+    transform: translateY(-30px);
+    position: relative;
+}

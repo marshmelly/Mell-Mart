@@ -133,7 +133,7 @@ const Cart = () => {
                       </div>
                       <button 
                         onClick={() => removeFromCart(item.id)}
-                        className="remove-button"
+                        className="button"
                       >
                         Remove
                       </button>
@@ -144,7 +144,7 @@ const Cart = () => {
                   <h4>Total: ${getTotalPrice().toFixed(2)}</h4>
                   <button 
                     onClick={proceedToCheckout}
-                    className="checkout-button"
+                    className="button"
                     disabled={cartItems.length === 0}
                   >
                     Proceed to Checkout

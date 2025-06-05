@@ -49,7 +49,7 @@ const Carousel = () => {
 const styles = {
   carouselContainer: {
     position: "relative",
-    maxWidth: "800px",
+    maxWidth: "600px",
     margin: "auto",
     display: "flex",
     alignItems: "center",

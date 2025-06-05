@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import './Payment.css'
 
 const Payment = () => {
   const [phone, setPhone] = useState("");
@@ -51,9 +52,9 @@ const Payment = () => {
 
   return (
     <div className="payment-container">
-      <h1 className="payment-header">Make Payment - LIPA NA MPESA</h1>
+      <h1 className="payment-header">CHECK OUT</h1>
       
-     <div className="row justify-content-center mt-2">
+     <div className="row justify-content-center mt-2 pay-form">
       <div className="shadow-card col-md-6 p-2">
        <div className="payment-card">
         <h1 className="payment-title">LIPA NA MPESA</h1>
@@ -64,7 +65,7 @@ const Payment = () => {
             <ul className="item-list">
               {cartItems.map((item, index) => (
                 <li key={index} className="item-row">
-                  <span>{item.product_name}</span>
+                  <span>{item.product_name}</span><br />
                   <span>Ksh{item.product_cost.toFixed(2)} x {item.quantity}</span>
                 </li>
               ))}
@@ -80,7 +81,7 @@ const Payment = () => {
 
         <form onSubmit={handleSubmit} className="payment-form">
           <div className="form-group">
-            <label htmlFor="phone">M-Pesa Phone Number</label>
+            <label htmlFor="phone" className="text">M-Pesa Phone Number</label>
             <input
               type="tel"
               id="phone"

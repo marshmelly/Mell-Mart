@@ -14,7 +14,8 @@ import Contact from './Components/Contact';
 import Footer from './Components/Footer';
 import AddProducts from './Components/AddProducts'
 import Payment from './Components/Payments';
-
+import Header from './Components/Header';
+import SplashCursor from './SplashCursor/SplashCursor';
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
           <Navbar />
           
       <main className="main-content">
+        <Header />
+        <SplashCursor />
         <BrowserRouter>
             
             <Routes>
